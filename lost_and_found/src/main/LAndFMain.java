@@ -55,16 +55,16 @@ public class LAndFMain {
 			view.MainMenuViewer.mainMenuView();
 
 			int choiceNum = input.nextInt();
-			input.nextLine(); 				// ¹öÆÛÅ¬¸®¾î
+			input.nextLine(); 				// ë²„í¼í´ë¦¬ì–´
 			switch (choiceNum) {
-			case MainMenuChoice.LOST:		// ºĞ½Ç¹°
+			case MainMenuChoice.LOST:		// ë¶„ì‹¤ë¬¼
 				lostMenu();
 				break;
-			case MainMenuChoice.FOUND:		// ½Àµæ¹°
+			case MainMenuChoice.FOUND:		// ìŠµë“ë¬¼
 				foundMenu();
 				break;
 				
-			case MainMenuChoice.EXIT:		// Á¾·áÇÏ±â
+			case MainMenuChoice.EXIT:		// ì¢…ë£Œí•˜ê¸°
 				exitFlag = true;
 				break;
 			}
@@ -77,36 +77,36 @@ public class LAndFMain {
 			view.LostMenuViewer.lostMenuView();
 
 			int choiceNum = input.nextInt();
-			input.nextLine(); // ¹öÆÛÅ¬¸®¾î
+			input.nextLine(); // ë²„í¼í´ë¦¬ì–´
 			switch (choiceNum) {
-			case LostMenuChoice.LOAD:// À¥ Á¤º¸ °¡Á®¿À±â
+			case LostMenuChoice.LOAD:// ì›¹ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 				missingArticleList = MissingArticleDAO.webConnection();
 				break;
-			case LostMenuChoice.INSERT: // Å×ÀÌºí ÀúÀåÇÏ±â
+			case LostMenuChoice.INSERT: // í…Œì´ë¸” ì €ì¥í•˜ê¸°
 				if (missingArticleList.size() < 1) {
-					System.out.println("°ø°øµ¥ÀÌÅÍ·ÎºÎÅÍ °¡Á®¿Â ÀÚ·á°¡ ¾ø½À´Ï´Ù.");
+					System.out.println("ê³µê³µë°ì´í„°ë¡œë¶€í„° ê°€ì ¸ì˜¨ ìë£Œê°€ ì—†ìŠµë‹ˆë‹¤.");
 					continue;
 				}
 				MissingArticleDAO.insertArticle(missingArticleList);
 				break;
-			case LostMenuChoice.SELECT:// Å×ÀÌºí ÀĞ¾î¿À±â
+			case LostMenuChoice.SELECT:// í…Œì´ë¸” ì½ì–´ì˜¤ê¸°
 				missingArticleSelectList = MissingArticleDAO.selectArticle();
 				MissingArticleManager.printArticle(missingArticleSelectList);
 
 				break;
-			case LostMenuChoice.UPDATE:// Å×ÀÌºí ¼öÁ¤ÇÏ±â
+			case LostMenuChoice.UPDATE:// í…Œì´ë¸” ìˆ˜ì •í•˜ê¸°
 				String data = MissingArticleManager.updateArticle();
 				if (data.length() != 0) {
 					MissingArticleManager.updateArticle(data);
 				}
 				break;
-			case LostMenuChoice.DELETE:// Å×ÀÌºí »èÁ¦ÇÏ±â
+			case LostMenuChoice.DELETE:// í…Œì´ë¸” ì‚­ì œí•˜ê¸°
 				MissingArticleManager.deleteArticle();
 				break;
 			case LostMenuChoice.SEARCH:
 				MissingArticleDAO.searchArticle();
 				break;
-			case LostMenuChoice.EXIT:// Á¾·áÇÏ±â
+			case LostMenuChoice.EXIT:// ì¢…ë£Œí•˜ê¸°
 				exitFlag = true;
 				break;
 			}
@@ -119,39 +119,39 @@ public class LAndFMain {
 			view.FoundMenuViewer.foundMenuView();
 
 			int choiceNum = input.nextInt();
-			input.nextLine(); // ¹öÆÛÅ¬¸®¾î
+			input.nextLine(); // ë²„í¼í´ë¦¬ì–´
 			switch (choiceNum) {
-			case FoundMenuChoice.LOAD:// À¥ Á¤º¸ °¡Á®¿À±â
+			case FoundMenuChoice.LOAD:// ì›¹ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 				foundArticleList = FoundArticleDAO.webConnection();
 				break;
-			case FoundMenuChoice.INSERT: // Å×ÀÌºí ÀúÀåÇÏ±â
+			case FoundMenuChoice.INSERT: // í…Œì´ë¸” ì €ì¥í•˜ê¸°
 				if (foundArticleList.size() < 1) {
-					System.out.println("°ø°øµ¥ÀÌÅÍ·ÎºÎÅÍ °¡Á®¿Â ÀÚ·á°¡ ¾ø½À´Ï´Ù.");
+					System.out.println("ê³µê³µë°ì´í„°ë¡œë¶€í„° ê°€ì ¸ì˜¨ ìë£Œê°€ ì—†ìŠµë‹ˆë‹¤.");
 					continue;
 				}
 				FoundArticleDAO.insertArticle(foundArticleList);
 				break;
-			case FoundMenuChoice.SELECT:// Å×ÀÌºí ÀĞ¾î¿À±â
+			case FoundMenuChoice.SELECT:// í…Œì´ë¸” ì½ì–´ì˜¤ê¸°
 				foundArticleSelectList = FoundArticleDAO.selectArticle();
 				FoundArticleManager.printArticle(foundArticleSelectList);
 
 				break;
-			case FoundMenuChoice.UPDATE:// Å×ÀÌºí ¼öÁ¤ÇÏ±â
+			case FoundMenuChoice.UPDATE:// í…Œì´ë¸” ìˆ˜ì •í•˜ê¸°
 				String data = FoundArticleManager.updateArticle();
 				if (data.length() != 0) {
 					FoundArticleManager.updateArticle(data);
 				}
 				break;
-			case FoundMenuChoice.DELETE:// Å×ÀÌºí »èÁ¦ÇÏ±â
+			case FoundMenuChoice.DELETE:// í…Œì´ë¸” ì‚­ì œí•˜ê¸°
 				FoundArticleManager.deleteArticle();
 				break;
-			case FoundMenuChoice.SEARCH_PL://º¸°üÀå¼Ò·Î °Ë»ö
+			case FoundMenuChoice.SEARCH_PL://ë³´ê´€ì¥ì†Œë¡œ ê²€ìƒ‰
 				FoundArticleDAO.searchDepPlace();
 				break;
-			case FoundMenuChoice.SEARCH_MN://¹°Ç°¸íÀ¸·Î °Ë»ö
+			case FoundMenuChoice.SEARCH_MN://ë¬¼í’ˆëª…ìœ¼ë¡œ ê²€ìƒ‰
 				FoundArticleDAO.searchFdPrdtNm();
 				break;
-			case FoundMenuChoice.EXIT:// Á¾·áÇÏ±â
+			case FoundMenuChoice.EXIT:// ì¢…ë£Œí•˜ê¸°
 				exitFlag = true;
 				break;
 			}

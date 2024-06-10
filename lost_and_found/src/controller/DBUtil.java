@@ -10,11 +10,11 @@ import java.util.Properties;
 
 public class DBUtil {
 	public static Connection makeConnection(){
-        //db.properties ÆÄÀÏ°æ·Î
+        //db.properties íŒŒì¼ê²½ë¡œ
         String filePath = "C:/lost-and-found/lost_and_found/src/db.properties";
         Connection con = null;
         try {
-            //db.properties µğºñÁÖ¼Ò,»ç¿ëÀÚ¸í,»ç¿ëÀÚ¾ÏÈ£ °¡Á®¿À±â
+            //db.properties ë””ë¹„ì£¼ì†Œ,ì‚¬ìš©ìëª…,ì‚¬ìš©ìì•”í˜¸ ê°€ì ¸ì˜¤ê¸°
             Properties properties = new Properties();
             properties.load(new FileReader(filePath));
             String url = properties.getProperty("url");
@@ -24,19 +24,19 @@ public class DBUtil {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             //DATABASE CONNECT
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("µ¥ÀÌÅ¸º£ÀÌ½ºÁ¢¼Ó ¼º°ø");
+            System.out.println("ë°ì´íƒ€ë² ì´ìŠ¤ì ‘ì† ì„±ê³µ");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("µ¥ÀÌÅ¸º£ÀÌ½º µå¶óÀÌ¹ö ·Îµå ½ÇÆĞ");
+            System.out.println("ë°ì´íƒ€ë² ì´ìŠ¤ ë“œë¼ì´ë²„ ë¡œë“œ ì‹¤íŒ¨");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("µ¥ÀÌÅ¸º£ÀÌ½º ¿¬°á ½ÇÆĞ");
+            System.out.println("ë°ì´íƒ€ë² ì´ìŠ¤ ì—°ê²° ì‹¤íŒ¨");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("DB.PROPERTIES ¿¬°á½ÇÆĞ");
+            System.out.println("DB.PROPERTIES ì—°ê²°ì‹¤íŒ¨");
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("DB.PROPERTIES ¿¬°á½ÇÆĞ");
+            System.out.println("DB.PROPERTIES ì—°ê²°ì‹¤íŒ¨");
         }
         return con;
     }

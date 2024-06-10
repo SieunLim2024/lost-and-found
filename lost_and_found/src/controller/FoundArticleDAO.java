@@ -29,7 +29,7 @@ import model.FoundArticleVO;
 
 public class FoundArticleDAO {
 	public static void searchDepPlace() {
-		System.out.println("°Ë»öÇÒ º¸°üÀå¼Ò>>");
+		System.out.println("ê²€ìƒ‰í•  ë³´ê´€ì¥ì†Œ>>");
 		String inputId="%"+main.LAndFMain.input.nextLine()+"%";
 		String sql = "select * from FoundArticle where DEPPLACE like ?";
         Connection con = null; 
@@ -42,7 +42,7 @@ public class FoundArticleDAO {
             pstmt.setString(1, inputId);
             rs = pstmt.executeQuery();
             if(!rs.next()){
-            	System.out.println("ÇØ´çÇÏ´Â °÷ÀÌ ¾ø½À´Ï´Ù.");
+            	System.out.println("í•´ë‹¹í•˜ëŠ” ê³³ì´ ì—†ìŠµë‹ˆë‹¤.");
             }
             while(!flag) {
             	FoundArticleVO fa = new FoundArticleVO();
@@ -79,10 +79,10 @@ public class FoundArticleDAO {
 
 	public static void insertArticle(ArrayList<FoundArticleVO> FoundArticleList) {
 		if (FoundArticleList.size() < 1) {
-			System.out.println("ÀÔ·ÂÇÒ µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ì…ë ¥í•  ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
-		//ÀúÀåÇÏ±â Àü¿¡ Å×ÀÌºí¿¡ ÀÖ´Â ³»¿ëÀ» »èÁ¦
+		//ì €ì¥í•˜ê¸° ì „ì— í…Œì´ë¸”ì— ìˆëŠ” ë‚´ìš©ì„ ì‚­ì œ
 		FoundArticleManager.deleteArticle();
 		
 		Connection con = null;
@@ -100,9 +100,9 @@ public class FoundArticleDAO {
 				int value = pstmt.executeUpdate();
 
 				if (value == 1) {
-					System.out.println(data.getAtcId() + "µî·Ï ¿Ï·á");
+					System.out.println(data.getAtcId() + "ë“±ë¡ ì™„ë£Œ");
 				} else {
-					System.out.println(data.getAtcId() + "µî·Ï ½ÇÆĞ");
+					System.out.println(data.getAtcId() + "ë“±ë¡ ì‹¤íŒ¨");
 				}
 			}
 		} catch (SQLException e) {
@@ -124,7 +124,7 @@ public class FoundArticleDAO {
 	}
 	
 	public static void searchFdPrdtNm() {
-		System.out.println("°Ë»öÇÒ ºĞ½Ç¹° ¸í>>");
+		System.out.println("ê²€ìƒ‰í•  ë¶„ì‹¤ë¬¼ ëª…>>");
 		String inputId="%"+main.LAndFMain.input.nextLine()+"%";
 		String sql = "select * from FoundArticle where FDPRDTNM like ?";
         Connection con = null; 
@@ -137,7 +137,7 @@ public class FoundArticleDAO {
             pstmt.setString(1, inputId);
             rs = pstmt.executeQuery();
             if(!rs.next()){
-            	System.out.println("ÇØ´çÇÏ´Â ¹°Ç°¸íÀÌ ¾ø½À´Ï´Ù.");
+            	System.out.println("í•´ë‹¹í•˜ëŠ” ë¬¼í’ˆëª…ì´ ì—†ìŠµë‹ˆë‹¤.");
             }
             while(!flag) {
             	FoundArticleVO fa = new FoundArticleVO();
@@ -250,19 +250,19 @@ public class FoundArticleDAO {
 		ArrayList<FoundArticleVO> list = new ArrayList<>();
 		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1320000/LosfundInfoInqireService/getLosfundInfoAccToClAreaPd"); /*URL*/
         try {
-		urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=¼­ºñ½ºÅ°"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("PRDT_CL_CD_01","UTF-8") + "=" + URLEncoder.encode("PRH000", "UTF-8")); /*´ëºĞ·ù*/
-        urlBuilder.append("&" + URLEncoder.encode("PRDT_CL_CD_02","UTF-8") + "=" + URLEncoder.encode("PRH200", "UTF-8")); /*ÁßºĞ·ù*/
-        urlBuilder.append("&" + URLEncoder.encode("FD_COL_CD","UTF-8") + "=" + URLEncoder.encode("CL1002", "UTF-8")); /*½Àµæ¹° »ö»ó*/
-        urlBuilder.append("&" + URLEncoder.encode("START_YMD","UTF-8") + "=" + URLEncoder.encode("20231001", "UTF-8")); /*°Ë»ö½ÃÀÛÀÏ*/
-        urlBuilder.append("&" + URLEncoder.encode("END_YMD","UTF-8") + "=" + URLEncoder.encode("20240520", "UTF-8")); /*°Ë»öÁ¾·áÀÏ*/
-        urlBuilder.append("&" + URLEncoder.encode("N_FD_LCT_CD","UTF-8") + "=" + URLEncoder.encode("LCA000", "UTF-8")); /*½ÀµæÁö¿ª*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ÆäÀÌÁö ¹øÈ£*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*¸ñ·Ï °Ç¼ö*/
+		urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=ì„œë¹„ìŠ¤í‚¤"); /*Service Key*/
+        urlBuilder.append("&" + URLEncoder.encode("PRDT_CL_CD_01","UTF-8") + "=" + URLEncoder.encode("PRH000", "UTF-8")); /*ëŒ€ë¶„ë¥˜*/
+        urlBuilder.append("&" + URLEncoder.encode("PRDT_CL_CD_02","UTF-8") + "=" + URLEncoder.encode("PRH200", "UTF-8")); /*ì¤‘ë¶„ë¥˜*/
+        urlBuilder.append("&" + URLEncoder.encode("FD_COL_CD","UTF-8") + "=" + URLEncoder.encode("CL1002", "UTF-8")); /*ìŠµë“ë¬¼ ìƒ‰ìƒ*/
+        urlBuilder.append("&" + URLEncoder.encode("START_YMD","UTF-8") + "=" + URLEncoder.encode("20231001", "UTF-8")); /*ê²€ìƒ‰ì‹œì‘ì¼*/
+        urlBuilder.append("&" + URLEncoder.encode("END_YMD","UTF-8") + "=" + URLEncoder.encode("20240520", "UTF-8")); /*ê²€ìƒ‰ì¢…ë£Œì¼*/
+        urlBuilder.append("&" + URLEncoder.encode("N_FD_LCT_CD","UTF-8") + "=" + URLEncoder.encode("LCA000", "UTF-8")); /*ìŠµë“ì§€ì—­*/
+        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*í˜ì´ì§€ ë²ˆí˜¸*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*ëª©ë¡ ê±´ìˆ˜*/
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		// 2. connection°´Ã¼ »ı¼º
+		// 2. connectionê°ì²´ ìƒì„±
 		URL url = null;
 		HttpURLConnection conn = null;
 		try {
@@ -278,7 +278,7 @@ public class FoundArticleDAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// 3.¿äÃ»Àü¼Û ¹× ÀÀ´ä Ã³¸®
+		// 3.ìš”ì²­ì „ì†¡ ë° ì‘ë‹µ ì²˜ë¦¬
 		BufferedReader rd =null;
 		try {
 			System.out.println(conn.getResponseCode());
@@ -288,16 +288,16 @@ public class FoundArticleDAO {
 				rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
 			}
 			Document doc = parseXML(conn.getInputStream());
-			// a. field ÅÂ±×°´Ã¼ ¸ñ·ÏÀ¸·Î °¡Á®¿Â´Ù.
+			// a. field íƒœê·¸ê°ì²´ ëª©ë¡ìœ¼ë¡œ ê°€ì ¸ì˜¨ë‹¤.
 			NodeList descNodes = doc.getElementsByTagName("item");
-			// b. List°´Ã¼ »ı¼º
+			// b. Listê°ì²´ ìƒì„±
 			
-			// c. °¢ item ÅÂ±×ÀÇ ÀÚ½ÄÅÂ±×¿¡¼­ Á¤º¸ °¡Á®¿À±â
+			// c. ê° item íƒœê·¸ì˜ ìì‹íƒœê·¸ì—ì„œ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 			for (int i = 0; i < descNodes.getLength(); i++) {
 				// item
 				Node item = descNodes.item(i);
 				FoundArticleVO data = new FoundArticleVO();
-				// item ÀÚ½ÄÅÂ±×¿¡ ¼øÂ÷ÀûÀ¸·Î Á¢±Ù
+				// item ìì‹íƒœê·¸ì— ìˆœì°¨ì ìœ¼ë¡œ ì ‘ê·¼
 				for (Node node = item.getFirstChild(); node != null; 
 					node =node.getNextSibling()) {
 //					System.out.println(node.getNodeName() + " : " +node.getTextContent());
@@ -305,7 +305,7 @@ public class FoundArticleDAO {
 					switch (node.getNodeName()) {
 					case "atcId":
 						data.setAtcId(node.getTextContent());
-						System.out.println(node.getTextContent()+"·Îµå ¿Ï·á");
+						System.out.println(node.getTextContent()+"ë¡œë“œ ì™„ë£Œ");
 						break;
 					case "depPlace":
 						data.setDepPlace(node.getTextContent());
@@ -321,10 +321,10 @@ public class FoundArticleDAO {
 						break;
 					}
 				}
-				// d. List°´Ã¼¿¡ Ãß°¡
+				// d. Listê°ì²´ì— ì¶”ê°€
 				list.add(data);
 			}
-//			// e.ÃÖÁ¾È®ÀÎ
+//			// e.ìµœì¢…í™•ì¸
 //			for (FoundArticle d : list) {
 //			System.out.println(d);
 //			}

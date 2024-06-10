@@ -1,12 +1,12 @@
 package model;
 
 public class MissingArticleVO {
-	private String atcId;		//°ü¸®ID
-	private String lstPlace;	//ºĞ½ÇÁö¿ª¸í
-	private String lstPrdtNm;	//ºĞ½Ç¹°¸í
-	private String lstYmd;		//ºĞ½ÇÀÏÀÚ
-	private String prdtClNm;	//¹°Ç°ºĞ·ù¸í
-	private String state;		//Ã£¾Ò´ÂÁö ¿©ºÎ
+	private String atcId;		//ê´€ë¦¬ID
+	private String lstPlace;	//ë¶„ì‹¤ì§€ì—­ëª…
+	private String lstPrdtNm;	//ë¶„ì‹¤ë¬¼ëª…
+	private String lstYmd;		//ë¶„ì‹¤ì¼ì
+	private String prdtClNm;	//ë¬¼í’ˆë¶„ë¥˜ëª…
+	private String state;		//ì°¾ì•˜ëŠ”ì§€ ì—¬ë¶€
 	
 	public MissingArticleVO() {
 		super();

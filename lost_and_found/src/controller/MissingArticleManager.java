@@ -12,7 +12,7 @@ public class MissingArticleManager {
 	public static void deleteArticle() {
 		int count = MissingArticleDAO.getCountArticle();
         if(count == 0) {
-            System.out.println("³»¿ëÀÌ ¾ø½À´Ï´Ù.");
+            System.out.println("ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤.");
             return; 
         }
         String sql = "delete from missingarticle";
@@ -23,9 +23,9 @@ public class MissingArticleManager {
             pstmt = con.prepareStatement(sql);
             int value = pstmt.executeUpdate();
             if(value != 0) {
-                System.out.println("Á¤º¸ »èÁ¦¿Ï·á");
+                System.out.println("ì •ë³´ ì‚­ì œì™„ë£Œ");
             }else {
-                System.out.println("Á¤º¸ »èÁ¦½ÇÆĞ");
+                System.out.println("ì •ë³´ ì‚­ì œì‹¤íŒ¨");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class MissingArticleManager {
 		return data;
 	}
 	
-	//ÁÖÀÎ Ã£¾Æ°£ ¿©ºÎ ¾÷µ¥ÀÌÆ® ÇØÁÜ
+	//ì£¼ì¸ ì°¾ì•„ê°„ ì—¬ë¶€ ì—…ë°ì´íŠ¸ í•´ì¤Œ
 	public static void updateArticle(String atcId) {
 		String sql = "UPDATE missingarticle SET state = 'Y' WHERE atcid =?";
         Connection con = null; 
@@ -62,9 +62,9 @@ public class MissingArticleManager {
             int value = pstmt.executeUpdate();
 
             if(value == 1) {
-                System.out.println(atcId+"¼öÁ¤¿Ï·á");
+                System.out.println(atcId+"ìˆ˜ì •ì™„ë£Œ");
             }else {
-                System.out.println(atcId+"¼öÁ¤½ÇÆĞ");
+                System.out.println(atcId+"ìˆ˜ì •ì‹¤íŒ¨");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class MissingArticleManager {
 	}
 	public static void printArticle(ArrayList<MissingArticleVO> missingArticleSelectList) {
 		if(missingArticleSelectList.size()<1) {
-			System.out.println("Ãâ·ÂÇÒ Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ì¶œë ¥í•  ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		for(MissingArticleVO data:missingArticleSelectList) {

@@ -29,7 +29,7 @@ import model.MissingArticleVO;
 
 public class MissingArticleDAO {
 	public static void searchArticle() {
-		System.out.println("°Ë»öÇÒ ATCID>>");
+		System.out.println("ê²€ìƒ‰í•  ATCID>>");
 		String inputId=main.LAndFMain.input.nextLine();
 		String sql = "select * from missingarticle where ATCID=?";
         Connection con = null; 
@@ -50,7 +50,7 @@ public class MissingArticleDAO {
             	ma.setState(rs.getString("STATE"));
             	System.out.println(ma.toString());
             }else {
-            	System.out.println("ÇØ´ç ATCID°¡ ¾ø½À´Ï´Ù.");
+            	System.out.println("í•´ë‹¹ ATCIDê°€ ì—†ìŠµë‹ˆë‹¤.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -73,10 +73,10 @@ public class MissingArticleDAO {
 
 	public static void insertArticle(ArrayList<MissingArticleVO> missingArticleList) {
 		if (missingArticleList.size() < 1) {
-			System.out.println("ÀÔ·ÂÇÒ µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ìž…ë ¥í•  ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
-		//ÀúÀåÇÏ±â Àü¿¡ Å×ÀÌºí¿¡ ÀÖ´Â ³»¿ëÀ» »èÁ¦
+		//ì €ìž¥í•˜ê¸° ì „ì— í…Œì´ë¸”ì— ìžˆëŠ” ë‚´ìš©ì„ ì‚­ì œ
 		MissingArticleManager.deleteArticle();
 		
 		Connection con = null;
@@ -94,9 +94,9 @@ public class MissingArticleDAO {
 				int value = pstmt.executeUpdate();
 
 				if (value == 1) {
-					System.out.println(data.getAtcId() + "µî·Ï ¿Ï·á");
+					System.out.println(data.getAtcId() + "ë“±ë¡ ì™„ë£Œ");
 				} else {
-					System.out.println(data.getAtcId() + "µî·Ï ½ÇÆÐ");
+					System.out.println(data.getAtcId() + "ë“±ë¡ ì‹¤íŒ¨");
 				}
 			}
 		} catch (SQLException e) {
@@ -198,25 +198,25 @@ public class MissingArticleDAO {
 		StringBuilder urlBuilder = new StringBuilder(
 				"http://apis.data.go.kr/1320000/LostGoodsInfoInqireService/getLostGoodsInfoAccToClAreaPd"); /* URL */
 		try {
-			urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=¼­ºñ½ºÅ°");/* Service Key */
+			urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=ì„œë¹„ìŠ¤í‚¤");/* Service Key */
 			urlBuilder.append("&" + URLEncoder.encode("START_YMD", "UTF-8") + "="
-					+ URLEncoder.encode("20240101", "UTF-8")); /* ºÐ½Ç¹° µî·Ï³¯Â¥ */
+					+ URLEncoder.encode("20240101", "UTF-8")); /* ë¶„ì‹¤ë¬¼ ë“±ë¡ë‚ ì§œ */
 			urlBuilder.append("&" + URLEncoder.encode("END_YMD", "UTF-8") + "="
-					+ URLEncoder.encode("20240519", "UTF-8")); /* ºÐ½Ç¹° µî·Ï³¯Â¥ */
+					+ URLEncoder.encode("20240519", "UTF-8")); /* ë¶„ì‹¤ë¬¼ ë“±ë¡ë‚ ì§œ */
 			urlBuilder.append("&" + URLEncoder.encode("PRDT_CL_CD_01", "UTF-8") + "="
-					+ URLEncoder.encode("PRA000", "UTF-8")); /* »óÀ§¹°Ç°ÄÚµå */
+					+ URLEncoder.encode("PRA000", "UTF-8")); /* ìƒìœ„ë¬¼í’ˆì½”ë“œ */
 			urlBuilder.append("&" + URLEncoder.encode("PRDT_CL_CD_02", "UTF-8") + "="
-					+ URLEncoder.encode("PRA300", "UTF-8")); /* ÇÏÀ§¹°Ç°ÄÚµå */
+					+ URLEncoder.encode("PRA300", "UTF-8")); /* í•˜ìœ„ë¬¼í’ˆì½”ë“œ */
 			urlBuilder.append("&" + URLEncoder.encode("LST_LCT_CD", "UTF-8") + "="
-					+ URLEncoder.encode("LCA000", "UTF-8")); /* ºÐ½ÇÁö¿ªÄÚµå */
+					+ URLEncoder.encode("LCA000", "UTF-8")); /* ë¶„ì‹¤ì§€ì—­ì½”ë“œ */
 			urlBuilder.append(
-					"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* ÆäÀÌÁö ¹øÈ£ */
+					"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* íŽ˜ì´ì§€ ë²ˆí˜¸ */
 			urlBuilder.append(
-					"&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /* ¸ñ·Ï °Ç¼ö */
+					"&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /* ëª©ë¡ ê±´ìˆ˜ */
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		// 2. connection°´Ã¼ »ý¼º
+		// 2. connectionê°ì²´ ìƒì„±
 		URL url = null;
 		HttpURLConnection conn = null;
 		try {
@@ -232,7 +232,7 @@ public class MissingArticleDAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// 3.¿äÃ»Àü¼Û ¹× ÀÀ´ä Ã³¸®
+		// 3.ìš”ì²­ì „ì†¡ ë° ì‘ë‹µ ì²˜ë¦¬
 		BufferedReader rd =null;
 		try {
 			System.out.println(conn.getResponseCode());
@@ -242,16 +242,16 @@ public class MissingArticleDAO {
 				rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
 			}
 			Document doc = parseXML(conn.getInputStream());
-			// a. field ÅÂ±×°´Ã¼ ¸ñ·ÏÀ¸·Î °¡Á®¿Â´Ù.
+			// a. field íƒœê·¸ê°ì²´ ëª©ë¡ìœ¼ë¡œ ê°€ì ¸ì˜¨ë‹¤.
 			NodeList descNodes = doc.getElementsByTagName("item");
-			// b. List°´Ã¼ »ý¼º
+			// b. Listê°ì²´ ìƒì„±
 			
-			// c. °¢ item ÅÂ±×ÀÇ ÀÚ½ÄÅÂ±×¿¡¼­ Á¤º¸ °¡Á®¿À±â
+			// c. ê° item íƒœê·¸ì˜ ìžì‹íƒœê·¸ì—ì„œ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 			for (int i = 0; i < descNodes.getLength(); i++) {
 				// item
 				Node item = descNodes.item(i);
 				MissingArticleVO data = new MissingArticleVO();
-				// item ÀÚ½ÄÅÂ±×¿¡ ¼øÂ÷ÀûÀ¸·Î Á¢±Ù
+				// item ìžì‹íƒœê·¸ì— ìˆœì°¨ì ìœ¼ë¡œ ì ‘ê·¼
 				for (Node node = item.getFirstChild(); node != null; 
 					node =node.getNextSibling()) {
 //					System.out.println(node.getNodeName() + " : " +node.getTextContent());
@@ -259,7 +259,7 @@ public class MissingArticleDAO {
 					switch (node.getNodeName()) {
 					case "atcId":
 						data.setAtcId(node.getTextContent());
-						System.out.println(node.getTextContent()+"·Îµå ¿Ï·á");
+						System.out.println(node.getTextContent()+"ë¡œë“œ ì™„ë£Œ");
 						break;
 					case "lstPlace":
 						data.setLstPlace(node.getTextContent());
@@ -275,10 +275,10 @@ public class MissingArticleDAO {
 						break;
 					}
 				}
-				// d. List°´Ã¼¿¡ Ãß°¡
+				// d. Listê°ì²´ì— ì¶”ê°€
 				list.add(data);
 			}
-//			// e.ÃÖÁ¾È®ÀÎ
+//			// e.ìµœì¢…í™•ì¸
 //			for (MissingArticle d : list) {
 //			System.out.println(d);
 //			}

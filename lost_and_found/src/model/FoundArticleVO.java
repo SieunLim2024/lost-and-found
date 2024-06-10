@@ -1,12 +1,12 @@
 package model;
 
 public class FoundArticleVO {
-	private String atcId;		//°ü¸®ID
-	private String depPlace;	//º¸°üÀå¼Ò
-	private String fdPrdtNm;	//ºĞ½Ç¹°¸í
-	private String fdYmd;		//½ÀµæÀÏÀÚ
-	private String prdtClNm;	//¹°Ç°ºĞ·ù¸í
-	private String state;		//°¡Á®°¬´ÂÁö ¿©ºÎ
+	private String atcId;		//ê´€ë¦¬ID
+	private String depPlace;	//ë³´ê´€ì¥ì†Œ
+	private String fdPrdtNm;	//ë¶„ì‹¤ë¬¼ëª…
+	private String fdYmd;		//ìŠµë“ì¼ì
+	private String prdtClNm;	//ë¬¼í’ˆë¶„ë¥˜ëª…
+	private String state;		//ê°€ì ¸ê°”ëŠ”ì§€ ì—¬ë¶€
 	
 	public FoundArticleVO() {
 		super();
