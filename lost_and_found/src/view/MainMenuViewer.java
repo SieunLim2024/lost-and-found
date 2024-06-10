@@ -1,11 +1,10 @@
 package view;
 
-public class MenuViewer {
+public class MainMenuViewer {
 	public static void mainMenuView() {
 		System.out.println("----------------------------------------------------------------------------------------------------------------------");
-		System.out.println("1. 웹 정보 가져오기, 2. 테이블 저장하기, 3. 테이블 읽어오기");
-		System.out.println("4. 상태 수정하기, 5. 삭제하기 6. 테이블 검색하기 7.종료");
+		System.out.println("1.분실물 2. 습득물 3. 종료");
 		System.out.println("----------------------------------------------------------------------------------------------------------------------");
-		System.out.println("메뉴 선택>>");
+
 	}
 }
